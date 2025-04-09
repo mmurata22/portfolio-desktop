@@ -1,0 +1,171 @@
+/* ALL (BG COLOR) */
+body{
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* GENERAL POPUP LAYOUT */
+.header_title{
+    color: white;
+    font-family: "VT323";
+    font-size: 45px;
+    padding: 5px;
+    margin: 0px;
+}
+.container {
+    display: none;
+}
+.x_button{
+    background-image: url(images/close-icon.png);
+    height: 50px;
+    width: 60px;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    background-size: contain;
+    background-position: center;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 1000px;
+    border: 5px solid #000000;
+    padding: 10px;
+    background-color: #000000;
+    position: relative;
+}
+.header_box{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -2px;
+    margin-bottom: 50px;
+    width: 1000px;
+    border: 5px solid #000000;
+    border-radius: 3px;
+    padding: 10px;
+    position: relative;
+    box-shadow: 10px 20px;
+    background-color: white;
+}
+.first_title{ /* INTERPLANETARY INTERNET */
+    color:#000000;
+    font-family: "VT323";
+    font-size: 50px;
+    text-align: right;
+    padding-left: 500px;
+}
+.planet_acsii{
+    color:#000000;
+    font-family: "VT323";
+    font-size: 30px;
+}
+/* Adjust draggable class styles */
+.draggable {
+    cursor: move;
+    z-index: 2;
+    position: relative;
+}
+
+/* DIV 2: WHAT'S INTERPLANETARY? */ 
+#div2{
+    display: block;
+}
+
+/* ICON FLEX (LEFT) */
+.icons {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    z-index: 0;
+}
+.icon_below{ /* NOTE: THIS IS ICONS BELOW FIRST ICON FOR PADDING BETWEEN ICONS */
+    margin-top: 40px;
+}
+.button.icon {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+}
+button.icon:hover::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    right: -7px;
+    bottom: -7px;
+    background-color: rgba(200, 200, 200, 0.7);
+    z-index: -1;
+    border: 1px dotted #333;
+}
+.icon_text{
+    font-family: "VT323";
+    font-size: 20px;
+    color: black;
+}
+
+/* POP UP STYLIZATIONS (NOT IN FIRST) */
+.content{
+    font-family: "VT323";
+    font-size: 20px;
+}
+.popup_img{
+    width: 250px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+.popup_img_exception{
+    width: 500px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+/* HIDE POP UPS NOT MEANT TO BE THERE */
+#div2, #div3, #div4, #div5, #div6{
+    display: none;
+}
+
+/* LOWER NAVBAR */
+.lower_navbar{
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+    padding: 4px;
+    color: black;
+    background-color: black;
+    font-size: 14px;
+    text-decoration: none;
+    z-index: 2;
+    font-family: "VT323";
+}
+.lower_button{
+    padding: 10px 15px 10px 10px;
+    margin-top: 2px;
+    background-color: white;
+    border: none;
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 0px;
+    font-family: "VT323";
+    text-align: center;
+}
+.gap{
+    color: black;
+    background-color: black;
+    width: 4px;
+    height: 0px;
+    border: none;
+}

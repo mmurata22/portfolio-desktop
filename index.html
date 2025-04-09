@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking in Outer Space</title>
+    <style type="text/css">* {cursor: url(https://cur.cursors-4u.net/mechanics/mec-1/mec11.cur), auto !important;}</style><a href="https://www.cursors-4u.com/cursor/2005/04/22/mec11-11.html" target="_blank" title="Space Shuttle"><img src="https://cur.cursors-4u.net/cursor.png" border="0" alt="Space Shuttle" style="position:absolute; top: 0px; right: 0px;" /></a>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <script src="javascript/navigator.js"></script>
+    <script type="text/javascript" src="javascript/script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- icons flex left -->
+    <div class="icons">
+        <button class="icon icon_top button" onclick="openTab(2)">
+            <img class="icon_image" src="images/page_pixel_icon.png">
+            <div class="icon_text">
+                What's
+                <br>
+                INTERPLANETARY
+                <br>
+                INTERNET?
+            </div>
+        </button>
+        <button class="icon icon_below button" onclick="openTab(3)">
+            <img class="icon_image" src="images/page_pixel_icon.png">
+            <div class="icon_text">
+                Before
+                <br>
+                INT. INTERNET
+            </div>
+        </button>
+        <button class="icon icon_below button" onclick="openTab(4)">
+            <img class="icon_image" src="images/page_pixel_icon.png">
+            <div class="icon_text">
+                GOOGLE
+                <br>
+                and
+                <br>
+                NASA
+            </div>
+        </button>
+        <button class="icon icon_below button" onclick="openTab(5)">
+            <img class="icon_image" src="images/page_pixel_icon.png">
+            <div class="icon_text">
+                SUCESS
+            </div>
+        </button>
+        <button class="icon icon_below button" onclick="openTab(6)">
+            <img class="icon_image" src="images/page_pixel_icon.png">
+            <div class="icon_text">
+                Continuation
+            </div>
+        </button>
+    </div>  
+
+    <!-- lower navbar -->
+    <div class="lower_navbar">
+        <button class="lower_button start_button"><b>INTERPLANETARY INTERNET</b></button>
+        <button class="gap"></button>
+        <button class="lower_button" onclick="goToRandom()">Random</button>
+        <button class="lower_button" onclick="goToPrevious()">Previous</button>
+        <button class="lower_button" onclick="goToNext()">Next</button>
+    </div>
+
+    <!-- auto popup (AUTO-OPEN) -->
+    <div id="div1" class="hidden_div draggable">
+        <div class="header">
+            <p class="header_title"> Welcome! </p>
+            <button class="x_button align" onclick="closeTab(1)"></button>
+        </div>
+        <div class="header_box">
+            <span class="first_title">INTERPLANETARY INTERNET</span>
+            <pre class="planet_acsii">
+⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠈⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠖⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣷⣶⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣿⣿⣿⣿⣿⣿⣧⡀⠤⠤⣤⣤⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣿⣿⣿⣿⣿⣿⣿⣇⠀⣦⣤⣤⣄⣈⡉⠉⠛⠛⠷⢶⠄⢠⣴⣦⡀⠀⠀⠀⠀
+⠀⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠉⠉⠛⠛⠷⣦⣀⠀⠀⢻⣿⣿⣿⡀⠀⠀⠀
+⠀⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣹⡆⠀⠀⠈⠉⠘⡇⠀⠀⠀
+⠀⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⢀⠀⢀⣀⣠⣤⡴⠾⠋⠀⠀⠀⢀⣠⡾⠃⠀⠀⠀
+⠀⣿⣿⣿⣿⣿⣿⠶⠶⠶⠀⠿⠃⠘⠉⠉⠀⠀⢀⣀⣤⣴⠾⠛⠉⠀⠀⠀⠀⠀
+⠀⣿⣿⣟⣉⣀⣀⣀⣀⣠⣤⣤⣤⣴⡶⠶⠿⠛⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠛⠛⠋⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</pre>
+        </div>
+    </div>
+
+    <!-- first popup icon! -->
+    <div id="div2" class="hidden_div draggable">
+        <div class="header">
+            <p class="header_title"> What's INTERPLANETARY INTERNET? </p>
+            <button class="x_button align" onclick="closeTab(2)"></button>
+        </div>
+        <div class="header_box">
+            <div class="content">
+                <p class="content">The interplanetary Internet is a space network connecting things like 
+                satellites, rovers on planets, and stations on Earth. It's how they 
+                share information, like a message from a rover on Mars traveling 
+                through a satellite to Earth. But because space is huge and communication 
+                takes time, and there are often problems with connections, like delays or 
+                errors, scientists are figuring out special ways to make it all work smoothly.</p>
+                
+                <p class="content">They're coming up with new rules and technologies to handle these challenges, 
+                making sure messages can still get through even with long delays and errors. 
+                It's like creating a space language that's patient and forgiving, so even if 
+                there's a hiccup along the way, the information still reaches its destination.</p>
+            </div>
+            <img class="popup_img" src="images/satellite_pixel_art.png" alt="Pixel art of a satellite">
+        </div>
+    </div>
+
+    <div id="div3" class="hidden_div draggable">
+        <div class="header">
+            <p class="header_title"> Before INTERPLANETARY INTERNET</p>
+            <button class="x_button align" onclick="closeTab(3)"></button>
+        </div>
+        <div class="header_box">
+            <div class="content">
+                <p class="content">Before the interplanetary internet, when people wanted to send information 
+                between planets or space missions and Earth, they had to rely on special signals or messages that 
+                traveled through space. But these signals could only go so far and weren't always very reliable. It 
+                was like trying to talk to someone really far away using a walkie-talkie; sometimes the messages got 
+                lost or took a long time to reach the other person.</p>
+                
+                <p class="content">Scientists and engineers realized that as we explore space more, we need a better 
+                way for our spaceships, robots, and stations to talk to each other and to us on Earth. So they came 
+                up with the idea of the interplanetary internet. It's kind of like a space version of the internet 
+                we use every day, but specially designed to handle the challenges of communicating across huge distances 
+                and through all the stuff in space that can get in the way. Now, our space explorers can share information 
+                more easily and reliably, helping us learn more about the universe around us!</p>
+            </div>
+            <img class="popup_img" src="images/error_message.png" alt="Critical error message picture">
+        </div>
+    </div>
+
+    <div id="div4" class="hidden_div draggable">
+        <div class="header">
+            <p class="header_title"> GOOGLE and NASA</p>
+            <button class="x_button align" onclick="closeTab(4)"></button>
+        </div>
+        <div class="header_box">
+            <div class="content">
+                <p class="content">Google and NASA teamed up to make space communication better with something called 
+                Delay-Tolerant Networking, or DTN. Imagine sending a letter to your friend in another town, but sometimes 
+                the mail gets stuck or takes a really long time to arrive. DTN is like a special way of sending messages in 
+                space that can handle these kinds of problems.</p>
+                
+                <p class="content">They tested this new way of sending messages on the International Space Station, kind of 
+                like a big space laboratory. It helped them see if DTN could work well in space where things are far away and 
+                connections aren't always steady. With DTN, astronauts and space robots can talk to each other and send important 
+                information more easily, making space exploration safer and more exciting!</p>
+            </div>
+            <img class="popup_img" src="images/letter_pixel_art.png" alt="Pixel art image of a letter">
+        </div>
+    </div>
+
+    <div id="div5" class="hidden_div draggable">
+        <div class="header">
+            <p class="header_title"> SUCCESS </p>
+            <button class="x_button align" onclick="closeTab(5)"></button>
+        </div>
+        <div class="header_box">
+            <div class="content">
+                <p class="content">The implementation of the interplanetary internet has been a big success for space exploration. 
+                Imagine having a superhighway connecting Earth to all the places we explore in space! It's like building a bridge 
+                between different planets, satellites, and spacecraft so they can all share information easily.</p>
+                
+                <p class="content">One big success story is the use of the Delay-Tolerant Networking (DTN) protocol. It's like a special 
+                language that lets spaceships and Earth stations talk to each other, even when there are long delays or problems with the 
+                connection. With DTN, we can send data between Earth and Mars, for example, more reliably and efficiently.</p>
+
+                <p class="content">NASA's Mars rovers, like Curiosity, have been using this interplanetary internet to send back amazing 
+                pictures and data from the Red Planet. It's like having a direct line of communication between scientists on Earth and 
+                the robots exploring other worlds. Thanks to the interplanetary internet, we're learning more than ever before about 
+                the mysteries of space!</p>
+            </div>
+            <img class="popup_img" src="images/rocket_pixel_art.png" alt="Pixel art of a rocket">
+        </div>
+    </div>
+
+    <div id="div6" class="hidden_div draggable">
+        <div class="header">
+            <p class="header_title"> Continuation </p>
+            <button class="x_button align" onclick="closeTab(6)"></button>
+        </div>
+        <div class="header_box">
+            <div class="content">
+                <p class="content">The continuation of the interplanetary internet is really exciting! Scientists and engineers are always 
+                working on making it even better so that we can explore space even more. They're developing new technologies and protocols 
+                to handle even longer distances and trickier communication challenges.</p>
+                
+                <p class="content">One cool idea is to expand the interplanetary internet to include more planets and moons in our solar 
+                system. Imagine being able to send messages and share information with spacecraft exploring Jupiter's moons or Saturn's 
+                rings!</p>
+
+                <p class="content">Another important aspect is making the interplanetary internet more reliable and secure. This means 
+                finding ways to protect our communication from things like space weather or hacking attempts. By continuing to improve 
+                the interplanetary internet, we can unlock even more discoveries about the universe and maybe even find signs of life 
+                beyond Earth!</p>
+            </div>
+            <img class="popup_img_exception" src="../images/pixel_galaxy.png" alt="Pixel art of the galaxy">
+        </div>
+    </div>
+</body>
+</html>
