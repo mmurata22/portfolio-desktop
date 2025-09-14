@@ -1,6 +1,7 @@
 /* ALL (BG COLOR) */
 body{
     background-color: rgba(255, 255, 255, 1);
+    overflow: hidden;  
 }
 
 /* GENERAL POPUP LAYOUT */
@@ -15,7 +16,7 @@ body{
     display: none;
 }
 .x_button{
-    background-image: url(images/close-icon.png);
+    background-image: url(../images/close-icon.png);
     height: 50px;
     width: 60px;
     padding: 0;
@@ -65,7 +66,7 @@ body{
 /* Adjust draggable class styles */
 .draggable {
     cursor: move;
-    z-index: 2;
+    z-index: ;
     position: relative;
 }
 
@@ -147,7 +148,7 @@ button.icon:hover::before {
     background-color: black;
     font-size: 14px;
     text-decoration: none;
-    z-index: 2;
+    z-index: 99999;
     font-family: "VT323";
 }
 .lower_button{
