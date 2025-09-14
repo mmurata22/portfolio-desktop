@@ -6,8 +6,6 @@
     <title>Michele's Desktop</title>
     <style type="text/css">* {cursor: url(https://cur.cursors-4u.net/mechanics/mec-1/mec11.cur), auto !important;}</style><a href="https://www.cursors-4u.com/cursor/2005/04/22/mec11-11.html" target="_blank" title="Space Shuttle"><img src="https://cur.cursors-4u.net/cursor.png" border="0" alt="Space Shuttle" style="position:absolute; top: 0px; right: 0px;" /></a>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/navigation.css">
-    <script src="javascript/navigator.js"></script>
     <script type="text/javascript" src="javascript/script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +17,19 @@
         <button class="icon icon_top button" onclick="openTab(2)">
             <img class="icon_image" src="images/page_pixel_icon.png">
             <div class="icon_text">
-                Sample File
+                About Me
+            </div>
+        </button>
+        <button class="icon icon_top button" onclick="openTab(3)">
+            <img class="icon_image" src="images/page_pixel_icon.png">
+            <div class="icon_text">
+                Technical <br> Experiences
+            </div>
+        </button>
+        <button class="icon icon_top button" onclick="openTab(4)">
+            <img class="icon_image" src="images/page_pixel_icon.png">
+            <div class="icon_text">
+                Personal <br> Projects
             </div>
         </button>
     </div>  
@@ -27,11 +37,22 @@
     <!-- lower navbar -->
     <div class="lower_navbar">
         <button class="lower_button start_button"><b>MMURATA22</b></button>
+        
+        <!-- Tabs for open windows -->
+        <div id="tab1" class="tab" onclick="bringWindowToFront('div1')">Welcome</div>
+        <div id="tab2" class="tab" onclick="bringWindowToFront('div2')">Sample</div>
+        
+        <!-- Time Widget -->
+        <div class="time-widget">
+            <span id="time">00:00:00</span>
+            <span id="date">Loading...</span>
+        </div>
+        
         <button class="gap"></button>
     </div>
 
     <!-- auto popup (AUTO-OPEN) -->
-    <div id="div1" class="hidden_div draggable">
+    <div id="div1" class="draggable">
         <div class="header">
             <p class="header_title"> Welcome! </p>
             <button class="x_button align" onclick="closeTab(1)"></button>
@@ -54,18 +75,55 @@
 ⠀⠛⠛⠋⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</pre>
         </div>
     </div>
+        <div id="div1" class="draggable">
+        <div class="header">
+            <p class="header_title"> Other Site </p>
+            <button class="x_button align" onclick="closeTab(0)"></button>
+        </div>
+        <div class="header_box">
+            <div class="content">
+                <p class="content">This site may be too difficult to navigate for some people! If 
+                    you'd like, you can view my simpler site over here: <a>https://mmurata22.github.io/</a>
+                </p>
+        </div>
+    </div>
 
     <!-- first popup icon! -->
-    <div id="div2" class="hidden_div draggable">
+    <div id="div2" class="draggable">
         <div class="header">
-            <p class="header_title"> Sample </p>
+            <p class="header_title">About Me</p>
             <button class="x_button align" onclick="closeTab(2)"></button>
         </div>
         <div class="header_box">
             <div class="content">
-                <p class="content">Sample</p>
+                <p class="content">Hi! I'm Michele Murata, currently enrolled at Lehigh University 
+                    majoring in Computer Science and minoring in Graphic Design. I have a passion 
+                    for UI/UX, graphics, game development, and all-around anything computer science.</p>
             </div>
-            <img class="popup_img" src="images/satellite_pixel_art.png" alt="Pixel art of a satellite">
+        </div>
+    </div>
+
+    <div id="div3" class="draggable">
+        <div class="header">
+            <p class="header_title">Technical Experiences</p>
+            <button class="x_button align" onclick="closeTab(3)"></button>
+        </div>
+        <div class="header_box">
+            <div class="content">
+                <p class="content">Tech.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="div4" class="draggable">
+        <div class="header">
+            <p class="header_title">Personal Projects</p>
+            <button class="x_button align" onclick="closeTab(4)"></button>
+        </div>
+        <div class="header_box">
+            <div class="content">
+                <p class="content">Personal Projects.</p>
+            </div>
         </div>
     </div>
 </body>

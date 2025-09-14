@@ -1,119 +1,101 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const draggableElements = document.querySelectorAll(".draggable");
+document.addEventListener("DOMContentLoaded", () => {
+    const draggables = document.querySelectorAll(".draggable");
+    let dragged = null;
+    let offsetX, offsetY;
 
-  // Make all draggables listen for mousedown
-  draggableElements.forEach((element) => {
-    element.addEventListener("mousedown", onMouseDown);
-  });
+    draggables.forEach(el => {
+        const header = el.querySelector(".header");
+        header.addEventListener("mousedown", e => {
+            dragged = el;
+            const rect = el.getBoundingClientRect();
+            offsetX = e.clientX - rect.left;
+            offsetY = e.clientY - rect.top;
+            bringToFront(el);
+            document.addEventListener("mousemove", onMove);
+            document.addEventListener("mouseup", onUp);
+        });
+    });
 
-  let offsetX, offsetY;
-  let draggedElement = null;
-
-  // --- Dragging ---
-  function onMouseDown(e) {
-    if (e.target.classList.contains("header")) {
-      draggedElement = e.currentTarget;
-      const rect = draggedElement.getBoundingClientRect();
-      offsetX = e.clientX - rect.left;
-      offsetY = e.clientY - rect.top;
-
-      bringToFront(draggedElement); // bring to front relative to other draggables
-      document.addEventListener("mousemove", onMouseMove);
-      document.addEventListener("mouseup", onMouseUp);
+    function onMove(e) {
+        if (!dragged) return;
+        dragged.style.left = `${e.clientX - offsetX}px`;
+        dragged.style.top = `${e.clientY - offsetY}px`;
     }
-  }
 
-  function onMouseMove(e) {
-    if (!draggedElement) return;
-
-    let newX = e.clientX - offsetX;
-    let newY = e.clientY - offsetY;
-
-    // Set position without touching z-index (windows stay below taskbar)
-    draggedElement.style.left = `${newX}px`;
-    draggedElement.style.top = `${newY}px`;
-  }
-
-  function onMouseUp() {
-    if (!draggedElement) return;
-    draggedElement = null;
-    document.removeEventListener("mousemove", onMouseMove);
-    document.removeEventListener("mouseup", onMouseUp);
-  }
-
-  // --- Bring a window to front relative to other draggables (max zIndex < taskbar) ---
-  function bringToFront(element) {
-    const divs = document.querySelectorAll(".draggable");
-    let highestZIndex = 2;
-
-    divs.forEach((div) => {
-      const zIndex = parseInt(window.getComputedStyle(div).zIndex, 10);
-      if (!isNaN(zIndex) && zIndex > highestZIndex && zIndex < 100) {
-        highestZIndex = zIndex;
-      }
-    });
-
-    element.style.zIndex = highestZIndex + 1; // max 99, taskbar is 100
-  }
-
-  // --- Drop-up menu toggle ---
-  function toggleDropUp() {
-    const dropUpContent = document.getElementById("dropUpContent");
-    dropUpContent.classList.toggle("show");
-  }
-
-  document.addEventListener("click", function(event) {
-    const dropUpContent = document.getElementById("dropUpContent");
-    const dropUpButton = document.querySelector(".box");
-
-    if (!event.target.closest(".drop-up") && event.target !== dropUpButton) {
-      dropUpContent.classList.remove("show");
+    function onUp() {
+        if (!dragged) return;
+        dragged = null;
+        document.removeEventListener("mousemove", onMove);
+        document.removeEventListener("mouseup", onUp);
     }
-  });
 
-  // --- Open/close tabs ---
-  window.openTab = function(divNumber) {
-    const divToOpen = document.getElementById("div" + divNumber);
-    if (divToOpen) divToOpen.style.display = "block";
+    function bringToFront(el) {
+        const divs = document.querySelectorAll(".draggable");
+        let highest = 2;
+        divs.forEach(d => {
+            const z = parseInt(window.getComputedStyle(d).zIndex) || 2;
+            if (z > highest && z < 1000) highest = z;
+        });
+        el.style.zIndex = highest + 1;
+    }
 
-    const tabToOpen = document.getElementById("tab" + divNumber);
-    if (tabToOpen) tabToOpen.style.display = "inline-block";
-  };
+    // Open a popup (independent)
+    window.openTab = divNumber => {
+        const popup = document.getElementById("div" + divNumber);
+        if (!popup) return;
+        popup.style.display = "block";
+        bringToFront(popup);
+    };
 
-  window.closeTab = function(divNumber) {
-    const divToClose = document.getElementById("div" + divNumber);
-    if (divToClose) divToClose.style.display = "none";
+    // Close a popup
+    window.closeTab = divNumber => {
+        const popup = document.getElementById("div" + divNumber);
+        if (!popup) return;
+        popup.style.display = "none";
+    };
 
-    const tabToClose = document.getElementById("tab" + divNumber);
-    if (tabToClose) tabToClose.style.display = "none";
-  };
+    // Time widget functionality - MOVED INSIDE DOMContentLoaded
+    function updateTime() {
+        // Check if elements exist before trying to update them
+        const timeElement = document.getElementById('time');
+        const dateElement = document.getElementById('date');
+        
+        if (!timeElement || !dateElement) {
+            console.log("Time widget elements not found");
+            return;
+        }
+        
+        const now = new Date();
+        
+        // Format time
+        const time = now.toLocaleTimeString('en-US', { 
+            hour12: false,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        
+        // Format date
+        const date = now.toLocaleDateString('en-US', { 
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric'
+        });
+        
+        // Update elements
+        timeElement.textContent = time;
+        dateElement.textContent = date;
+    }
 
-  // --- Load iframe ---
-  window.loadFrame = function(elm) {
-    const frame = document.getElementById("frame2");
-    if (frame) frame.src = elm.dataset.src;
-  };
-
-  // --- Icon buttons that open URLs ---
-  const iconButtons = document.querySelectorAll(".opennew");
-  iconButtons.forEach(button => {
-    button.addEventListener("click", function() {
-      const targetURL = button.getAttribute("data-target");
-      if (targetURL) window.location.href = targetURL;
-    });
-  });
-
-  // --- Toggle images ---
-  const toggleButton = document.getElementById("toggleButton");
-  const images = document.querySelectorAll(".toggle-image");
-  let imagesVisible = false;
-
-  if (toggleButton) {
-    toggleButton.addEventListener("click", function() {
-      images.forEach(image => {
-        image.style.display = imagesVisible ? "none" : "block";
-      });
-      imagesVisible = !imagesVisible;
-    });
-  }
+    // Initialize time widget only if elements exist
+    const timeElement = document.getElementById('time');
+    const dateElement = document.getElementById('date');
+    
+    if (timeElement && dateElement) {
+        updateTime();
+        setInterval(updateTime, 1000);
+        console.log("Time widget initialized");
+    } else {
+        console.log("Time widget elements not found in DOM");
+    }
 });
